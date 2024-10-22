@@ -1,53 +1,87 @@
-# Next.js & NextUI Template
 
-This is a template for creating applications using Next.js 14 (app directory) and NextUI (v2).
+# AI-Powered FAQ Page for SARAS AI Institute
 
-[Try it on CodeSandbox](https://githubbox.com/nextui-org/next-app-template)
+## Overview
 
-## Technologies Used
+This project is an AI-powered FAQ page built for SARAS AI Institute. The FAQ page leverages both ElasticSearch for efficient query handling and an AI chatbot for natural language interaction. The aim is to intelligently return relevant FAQ entries based on user queries.
 
-- [Next.js 14](https://nextjs.org/docs/getting-started)
-- [NextUI v2](https://nextui.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Tailwind Variants](https://tailwind-variants.org)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Framer Motion](https://www.framer.com/motion/)
-- [next-themes](https://github.com/pacocoursey/next-themes)
+## First Look of the Website
 
-## How to Use
+![First look of the website](https://github.com/user-attachments/assets/dc0b1f3d-01c5-4e4f-9e5f-6a349ce42e35)
 
-### Use the template with create-next-app
+## Key Features
 
-To create a new project based on this template using `create-next-app`, run the following command:
+- **AI Chatbot**: Provides natural language responses to user queries using the Gemini API.
+- **ElasticSearch Integration**: Fast and scalable search capabilities across FAQs.
+- **Next.js Frontend**: The frontend is built with Next.js, offering a fast and responsive user interface.
+- **Django Backend**: The backend is powered by Django, providing robust API and data management.
 
-```bash
-npx create-next-app -e https://github.com/nextui-org/next-app-template
-```
+## Use of AI Chatbot
 
-### Install dependencies
+![AI Chatbot interaction](https://github.com/user-attachments/assets/62540416-2043-45b6-b055-c63e87457f5c)
 
-You can use one of them `npm`, `yarn`, `pnpm`, `bun`, Example using `npm`:
+## Preview of ElasticSearch
 
-```bash
-npm install
-```
+![ElasticSearch results](https://github.com/user-attachments/assets/494cd8b4-76c1-4de0-bed1-b65df434fba1)
 
-### Run the development server
+## Tech Stack
 
-```bash
-npm run dev
-```
+- **Frontend**: Next.js
+- **Backend**: Django
+- **Search Engine**: ElasticSearch
+- **AI**: Custom AI Chatbot powered by the **Gemini API**
 
-### Setup pnpm (optional)
+## Installation
 
-If you are using `pnpm`, you need to add the following code to your `.npmrc` file:
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/Devanoper/sarcathonai.git
+    ```
 
-```bash
-public-hoist-pattern[]=*@nextui-org/*
-```
+2. Navigate to the project directory:
+    ```bash
+    cd sarcathonai
+    ```
 
-After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
+3. Install frontend dependencies:
+    ```bash
+    npm install
+    ```
+
+4. Install backend dependencies:
+    ```bash
+    cd server
+    pip install -r requirements.txt
+    ```
+
+5. Set up ElasticSearch on your local machine or use a hosted ElasticSearch instance.
+
+6. Configure the Gemini API by setting up your API key in the environment variables.
+
+7. Run the backend server:
+    ```bash
+    python manage.py runserver
+    ```
+
+8. Run the frontend server:
+    ```bash
+    npm run dev
+    ```
+
+9. Access the application at `http://localhost:3000`.
+
+## Usage
+
+Once the servers are running, users can:
+
+- Ask questions through the search bar.
+- Get instant FAQ matches from ElasticSearch.
+- Receive AI-powered responses for more complex queries through the chatbot (present at the bottom right of the webpage) powered by the Gemini API.
+
+## Contributing
+
+Feel free to submit issues or pull requests. For major changes, please open an issue first to discuss what you would like to change.
 
 ## License
 
-Licensed under the [MIT license](https://github.com/nextui-org/next-app-template/blob/main/LICENSE).
+This project is licensed under the MIT License.

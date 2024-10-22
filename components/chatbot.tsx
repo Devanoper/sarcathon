@@ -5,6 +5,7 @@ import { Card, CardHeader, CardBody } from "@nextui-org/card";
 import { Button } from "@nextui-org/button";
 import { Textarea } from "@nextui-org/input";
 import { Spinner } from "@nextui-org/spinner";
+import axios from "axios"; // Import Axios
 
 interface Message {
   id: string;
@@ -29,7 +30,7 @@ export const ChatbotButton = () => {
 
   const generateId = () => Math.random().toString(36).substr(2, 9);
 
-  const handleSendMessage = (message: string) => {
+  const handleSendMessage = async (message: string) => {
     if (!message.trim()) return;
 
     const userMessage: Message = {
@@ -42,15 +43,26 @@ export const ChatbotButton = () => {
     setInputValue("");
     setIsLoading(true);
 
-    setTimeout(() => {
+    try {
+      // Send message to the Django backend
+      const response = await axios.post("http://localhost:8000/faq/chat/", { prompt: message });
       const botMessage: Message = {
         id: generateId(),
-        content: "Thank you for your message! I'm here to help.",
+        content: response.data.response,
         sender: "bot",
       };
       setMessages((prev) => [...prev, botMessage]);
+    } catch (error) {
+      console.error("Error sending message:", error);
+      const errorMessage: Message = {
+        id: generateId(),
+        content: "Sorry, there was an error processing your request.",
+        sender: "bot",
+      };
+      setMessages((prev) => [...prev, errorMessage]);
+    } finally {
       setIsLoading(false);
-    }, 1000);
+    }
   };
 
   const handleKeyDown: React.KeyboardEventHandler<HTMLInputElement> = (e) => {

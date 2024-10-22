@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@keyframes draw-arrow {
+    from {
+      transform: translateX(0) translateY(0);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(10px) translateY(-10px);
+      opacity: 1;
+    }
+  }
+  
+  .animate-draw-arrow {
+    animation: draw-arrow 0.5s ease-out forwards;
+  }
+  
